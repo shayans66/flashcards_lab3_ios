@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
     
+    var flashcards = [Flashcard]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,8 +39,12 @@ class ViewController: UIViewController {
     
     func updateFlashcard(question: String, answer: String) {
         
-        frontLabel.text = question
-        backLabel.text = answer
+        let flashcard = Flashcard(question: question, answer: answer)
+        
+        frontLabel.text = flashcard.question
+        backLabel.text = flashcard.answer
+        
+        flashcards.append(flashcard)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
