@@ -52,6 +52,10 @@ class ViewController: UIViewController {
         backLabel.text = flashcard.answer
         
         flashcards.append(flashcard)
+        currentIndex = flashcards.count - 1
+        
+        print(":DD added new flashcard")
+        print("We now have \(currentIndex+1) flashcards")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
