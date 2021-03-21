@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         updateLabels()
         // update buttons
         updateNextPrevButtons()
+        
+        frontLabel.isHidden = false
     }
     @IBAction func didTapOnNext(_ sender: Any) {
         // update cur index
@@ -42,6 +44,8 @@ class ViewController: UIViewController {
         updateLabels()
         // update buttons
         updateNextPrevButtons()
+        
+        frontLabel.isHidden = false
     }
     
     func updateLabels(){
@@ -98,7 +102,10 @@ class ViewController: UIViewController {
         
         // update labels
         updateLabels()
+        
+        frontLabel.isHidden = false
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
