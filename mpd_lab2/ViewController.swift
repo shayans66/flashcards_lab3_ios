@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateFlashcard(question: "What's the capital of Russia?", answer: "St. Petersburg")
+        saveAllFlashcardsToDisk()
     }
 
     
@@ -114,6 +115,19 @@ class ViewController: UIViewController {
         
         creationController.flashcardsController = self
         
+    }
+    
+    func saveAllFlashcardsToDisk() {
+        
+        
+        // map flashcard array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question": card.question, "answer": card.answer]
+        }
+        // store on disk
+        UserDefaults.standard.set(flashcards, forKey: "flashcards")
+        // log it
+        print("flashcards saved to user defaults")
     }
     
 }
