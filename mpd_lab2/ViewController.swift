@@ -21,16 +21,20 @@ class ViewController: UIViewController {
     
     var flashcards = [Flashcard]()
     
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBAction func didTapOnPrev(_ sender: Any) {
+    }
+    @IBAction func didTapOnNext(_ sender: Any) {
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-//    @IBAction func didTapOnFlashCard(_ sender: Any) {
-//        frontLabel.isHidden = true;
-//        print("flashcard")
-//    }
     
     @IBAction func tappedOnFlashcard(_ sender: Any) {
         frontLabel.isHidden = true
