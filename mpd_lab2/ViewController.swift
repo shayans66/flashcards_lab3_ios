@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var frontLabel: UILabel!
     
     var flashcards = [Flashcard]()
+    // current flashcard index
+    var currentIndex = 0
     
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -33,6 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        updateFlashcard(question: "What's the capital of Russia?", answer: "St. Petersburg")
     }
 
     
