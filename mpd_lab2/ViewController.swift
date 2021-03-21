@@ -27,8 +27,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func didTapOnPrev(_ sender: Any) {
+        
+        // update cur index
+        currentIndex -= 1
+        // update labels
+        updateLabels()
+        // update buttons
+        updateNextPrevButtons()
     }
     @IBAction func didTapOnNext(_ sender: Any) {
+        // update cur index
+        currentIndex += 1
+        // update labels
+        updateLabels()
+        // update buttons
+        updateNextPrevButtons()
+    }
+    
+    func updateLabels(){
+        let currentFlashcard = flashcards[currentIndex]
+        
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
     }
     
     
@@ -75,6 +95,9 @@ class ViewController: UIViewController {
         
         // update button functionality
         updateNextPrevButtons()
+        
+        // update labels
+        updateLabels()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
