@@ -44,6 +44,22 @@ class ViewController: UIViewController {
     }
     
     
+    func updateNextPrevButtons(){
+        // disable next button if at end
+        if( currentIndex == flashcards.count - 1 ){
+            nextButton.isEnabled = false
+        }else{
+            nextButton.isEnabled = true
+        }
+        
+        // disable prev button if at beginning
+        if( currentIndex == 0 ){
+            prevButton.isEnabled = false
+        }else{
+            prevButton.isEnabled = true
+        }
+    }
+    
     func updateFlashcard(question: String, answer: String) {
         
         let flashcard = Flashcard(question: question, answer: answer)
@@ -56,6 +72,9 @@ class ViewController: UIViewController {
         
         print(":DD added new flashcard")
         print("We now have \(currentIndex+1) flashcards")
+        
+        // update button functionality
+        updateNextPrevButtons()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
