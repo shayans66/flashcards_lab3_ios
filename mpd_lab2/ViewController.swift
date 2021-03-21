@@ -58,9 +58,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        updateFlashcard(question: "What's the capital of Russia?", answer: "St. Petersburg")
-        saveAllFlashcardsToDisk()
+        // read saved flashcards
+        readSavedFlashcards()
+        
+        if (flashcards.count == 0) {
+            // Do any additional setup after loading the view.
+            updateFlashcard(question: "What's the capital of Russia?", answer: "St. Petersburg")
+        } else{
+            updateLabels()
+            updateNextPrevButtons()
+        }
+        
+    }
+    func readSavedFlashcards(){
+        // read dict array from disk if any
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]] {
+            let savedCards = dictionaryArray.map { dictionary -> Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)
+            }
+            // put them in flashcards array
+            flashcards.append(contentsOf: savedCards)
+        }
+        
+        
     }
 
     
@@ -105,6 +125,8 @@ class ViewController: UIViewController {
         updateLabels()
         
         frontLabel.isHidden = false
+        
+        saveAllFlashcardsToDisk()
     }
     
     
@@ -125,7 +147,7 @@ class ViewController: UIViewController {
             return ["question": card.question, "answer": card.answer]
         }
         // store on disk
-        UserDefaults.standard.set(flashcards, forKey: "flashcards")
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
         // log it
         print("flashcards saved to user defaults")
     }
