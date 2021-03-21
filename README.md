@@ -1,22 +1,22 @@
 
 
-## Lab 2
+## Lab 3
 
 ### App Description
-You start with the question/answer screen, where you can click on the question to see the answer. After clicking the plus sign, a new screen pops up where you can update the question and answer from the main screen
+Flashcard app that allows user to add flashcards with custom questions/answers, complete with saved flashcards from previous sessions
 
 ### App Walk-though
-gif is here
 
-<img src="https://i.imgur.com/O0dShCL.gif" width=200><br>
+
+<img src="https://i.imgur.com/HStXloY.gif" width=200 /><br>
+
 
 
 ## Required
-- [x] User can open the creation screen
-- [x] User can cancel out of the creation screen
-- [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [ ] User can delete a flashcard
 - [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [ ] User can store multiple choice questions
